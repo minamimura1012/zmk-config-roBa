@@ -19,7 +19,6 @@
     //         <&kp LEFT_ARROW>,
     //         <&kp UP_ARROW>,
     //         <&kp DOWN_ARROW>;
-
     //     tick = <10>;
     //     wait-ms = <5>;
     //     tap-ms = <5>;
@@ -79,27 +78,25 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        default_layer_mac {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R                        &kp T                                                          &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F                        &kp G        &kp LS(LG(S))                      &kp MINUS      &kp H        &kp J  &kp K      &kp L    &kp SQT
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                        &kp B        &kp COLON                          &kp SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 INT_HENKAN  &lt 2 SPACE  &lt_to_layer_0 3 INT_MUHENKAN      &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
-            >;
-
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
-        };
-
-        FUNCTION {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                       &kp F1  &kp F2  &kp F3  &kp F4  &kp F5
-&trans  &trans  &trans  &trans  &trans  &trans      &kp F13  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
-&trans  &trans  &trans  &trans  &trans  &trans      &trans   &trans  &trans  &trans  &trans  &kp F11
-&trans  &trans  &trans  &trans  &trans  &trans      &trans   &trans                          &kp F12
+&kp Q             &kp W         &kp E         &kp R             &kp T                                                    &kp Y      &kp U  &lt 5 I    &kp O    &kp P
+&kp A             &kp S         &kp D         &kp F             &kp G                 &kp TAB             &kp MINUS      &kp H      &kp J  &kp K      &kp L    &kp SQT
+&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V             &kp B                 &kp COLON           &kp BACKSPACE  &kp N      &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&mo 1             &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &lt_to_layer_0 3 F13  &kp LEFT_SHIFT      &kp SPACE      &kp ENTER                             &kp DEL
             >;
         };
 
-        NUM {
+        move_shortcut_mac {
+            bindings = <
+&trans          &trans     &trans     &trans     &trans                         &trans  &kp HOME        &kp UP_ARROW    &kp END          &trans
+&trans          &trans     &trans     &trans     &trans     &trans      &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
+&kp LEFT_SHIFT  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans      &trans  &trans  &trans          &trans          &trans           &trans
+&trans          &trans     &trans     &trans     &trans     &trans      &trans  &trans                                                   &trans
+            >;
+        };
+
+        symbol {
             bindings = <
 &kp MINUS                   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                                   &kp CARET         &kp AMPERSAND      &kp TILDE       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
 &kp SLASH                   &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))      &kp UNDERSCORE  &kp EXCLAMATION   &kp AT_SIGN        &kp HASH        &kp DOLLAR            &kp PERCENT
@@ -108,18 +105,16 @@
             >;
         };
 
-        ARROW {
+        Mouse {
             bindings = <
-&kp ESCAPE      &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &trans                       &trans  &trans  &trans  &trans  &trans
-&kp HOME        &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&kp LEFT_SHIFT  &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans   &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &trans                  &trans          &trans                   &trans   &trans      &trans  &trans                          &trans
+&trans  &trans  &trans  &trans  &trans                      &trans  &trans     &trans     &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp LCLK  &mkp LCLK  &mkp RCLK  &mkp RCLK
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp LCLK  &mkp LCLK  &mkp RCLK  &mkp RCLK
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                   &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
-        MOUSE {
+        Number {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
