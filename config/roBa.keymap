@@ -1,5 +1,5 @@
-#include <behaviors.dtsi>
 #include <behaviors/pointing_acceleration.dtsi>
+#include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
@@ -28,8 +28,10 @@
 };
 
 // 加速度調整
+
 &pointing_acceleration {
     // 基準値は 1000 = 1.0倍
+
     min-factor = <800>;          // ゆっくり動かした時（0.8倍：精密な操作用）
     max-factor = <3500>;         // 早く弾いた時（3.5倍：画面端までの大移動用）
     speed-threshold = <100>;     // 動きの速さがこれ以下なら min-factor を適用
@@ -101,10 +103,10 @@
 
         Move_shortcut_mac {
             bindings = <
-&kp LG(Q)       &kp LG(W)  &kp LG(E)  &kp LG(R)           &kp LG(T)                                          &kp LG(Y)       &kp HOME        &kp UP_ARROW    &kp END          &kp ESCAPE
-&kp LG(A)       &kp LG(S)  &kp LG(D)  &kp LG(F)           &kp LC(G)  &trans                   &kp F2         &trans          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(RETURN)
-&kp LEFT_SHIFT  &kp LG(Z)  &kp LG(X)  &kp LG(C)           &kp LG(V)  &kp LC(C)                &kp F7         &kp LG(N)       &kp LG(SLASH)   &trans          &kp LG(SLASH)    &kp LG(LS(NUMBER_6))
-&trans          &trans     &trans     &kp LC(LEFT_ARROW)  &trans     &kp LC(RIGHT_ARROW)      &kp LG(SPACE)  &kp LG(RETURN)                                                   &kp LG(LS(NUMBER_4))
+&kp LG(Q)       &kp LG(W)             &kp LG(E)             &kp LG(R)           &kp LG(T)                                          &kp LG(Y)       &kp HOME        &kp UP_ARROW    &kp END          &kp ESCAPE
+&kp LG(A)       &kp LG(S)             &kp LG(D)             &kp LG(F)           &kp LC(G)  &trans                   &kp F2         &trans          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(RETURN)
+&kp LEFT_SHIFT  &kp LG(Z)             &kp LG(X)             &kp LG(C)           &kp LG(V)  &kp LC(C)                &kp F7         &kp LG(N)       &kp LG(SLASH)   &trans          &kp LG(SLASH)    &kp LG(LEFT_BRACKET)
+&trans          &kp LG(LS(NUMBER_4))  &kp LG(LS(NUMBER_6))  &kp LC(LEFT_ARROW)  &trans     &kp LC(RIGHT_ARROW)      &kp LG(SPACE)  &kp LG(RETURN)                                                   &kp LG(RIGHT_BRACKET)
             >;
         };
 
