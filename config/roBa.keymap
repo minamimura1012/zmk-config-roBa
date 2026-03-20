@@ -1,3 +1,4 @@
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
@@ -31,11 +32,17 @@
         compatible = "zmk,input-processor-acceleration";
         #input-processor-cells = <0>;
         
-        // ここが加速度のパラメータです
-        min-factor = <800>;          // ゆっくり動かした時（0.8倍）
-        max-factor = <3500>;         // 早く弾いた時（3.5倍）
-        speed-threshold = <100>;     // この速度以下なら遅くする
-        speed-max = <1000>;          // この速度以上なら速くする
+        /* ▼ エラーの原因！これがないと動きません */
+        input-type = <INPUT_EV_REL>;
+        
+        /* ▼ ついでに、端数の動きを記録してより滑らかにする推奨設定 */
+        track-remainders;
+
+        /* ▼ 加速度のパラメータ（少し標準的な数値に調整しました） */
+        min-factor = <800>;          // ゆっくり動かした時（0.8倍：精密操作）
+        max-factor = <3500>;         // 早く弾いた時（3.5倍：大移動）
+        speed-threshold = <500>;     // この速度以下なら遅くする
+        speed-max = <1500>;          // この速度以上なら速くする
         acceleration-exponent = <2>; // カーブの強さ
     };
 };
